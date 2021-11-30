@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cinema-Food</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+
+    <string name="this_is_home_fragment">This is home fragment</string>
+    <string name="this_is_cart_fragment">This is cart fragment</string>
+    <string name="this_is_history_fragment">This is history fragment</string>
+    <string name="this_is_profile_fragment">This is profile fragment</string>
+</resources>
