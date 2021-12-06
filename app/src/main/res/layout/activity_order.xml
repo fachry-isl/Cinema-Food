@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.home.order.OrderActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_movie_order"
+                    android:layout_width="0dp"
+                    android:layout_height="225dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/poster_rons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedBottomImageView" />
+
+                <TextView
+                    android:id="@+id/tv_title_movie_order"
+                    style="@style/title_order_type"
+                    android:text="@string/rons_gone_wrong"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_movie_order" />
+
+                <TextView
+                    android:id="@+id/tv_desc_movie_order"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/rons_description"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/tv_title_movie_order"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title_movie_order" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/_11_45am"
+                    android:textColor="@color/greenlight"
+                    android:textSize="19sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_movie_order" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_resetOrder"
+                    android:layout_width="85dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/reset"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    style="@style/title_order_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/beverages"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/title_beverages"
+                    android:text="@string/mineral_water"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_mineral"
+                    style="@style/radiogroup_style"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                    app:layout_constraintStart_toEndOf="@+id/textView5"
+                    app:layout_constraintTop_toTopOf="@+id/textView5">
+
+                    <RadioButton
+                        android:id="@+id/radio0"
+                        style="@style/radiobutton_style"
+                        android:text="@string/normal"
+                        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_button_background_selector"
+                        android:button="@drawable/radio_button_background_selector"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="@string/cold"
+                        android:textAlignment="center"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/title_beverages"
+                    android:text="@string/coffee"
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_coffee"
+                    style="@style/radiogroup_style"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintStart_toStartOf="@+id/radioGroup_mineral"
+                    app:layout_constraintTop_toTopOf="@+id/textView6">
+
+                    <RadioButton
+                        android:id="@+id/btn_arabica"
+                        style="@style/radiobutton_style"
+                        android:text="@string/arabica" />
+
+                    <RadioButton
+                        android:id="@+id/btn_robusta"
+                        style="@style/radiobutton_style"
+                        android:text="@string/robusta" />
+
+                    <RadioButton
+                        android:id="@+id/btn_gayo"
+                        style="@style/radiobutton_style"
+                        android:text="@string/gayo" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/title_beverages"
+                    android:text="@string/tea"
+                    app:layout_constraintStart_toStartOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_tea"
+                    style="@style/radiogroup_style"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                    app:layout_constraintStart_toStartOf="@+id/radioGroup_coffee"
+                    app:layout_constraintTop_toTopOf="@+id/textView7">
+
+                    <RadioButton
+                        android:id="@+id/btn_hot"
+                        style="@style/radiobutton_style"
+                        android:text="@string/hot" />
+
+                    <RadioButton
+                        android:id="@+id/btn_ice"
+                        style="@style/radiobutton_style"
+                        android:text="@string/ice" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/title_beverages"
+                    android:text="@string/juice"
+                    app:layout_constraintStart_toStartOf="@+id/textView7"
+                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_juice"
+                    style="@style/radiogroup_style"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                    app:layout_constraintStart_toStartOf="@+id/radioGroup_tea"
+                    app:layout_constraintTop_toTopOf="@+id/textView8">
+
+                    <RadioButton
+                        android:id="@+id/btn_avocado"
+                        style="@style/radiobutton_style"
+                        android:text="@string/avocado" />
+
+                    <RadioButton
+                        android:id="@+id/btn_guava"
+                        style="@style/radiobutton_style"
+                        android:text="@string/guava" />
+
+                    <RadioButton
+                        android:id="@+id/btn_orange"
+                        style="@style/radiobutton_style"
+                        android:text="@string/orange" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/title_beverages"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/food"
+                    app:layout_constraintStart_toStartOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="32dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9"
+                    app:spanCount="3"
+                    tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/item_food_order" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="4dp">
+
+            <Button
+                android:id="@+id/btn_addOrder"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/greenlight"
+                android:text="@string/add_to_cart" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ScrollView>
