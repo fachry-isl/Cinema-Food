@@ -44,4 +44,12 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="illustrator_title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="illustrator_subtitle" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textSize">13sp</item>
+    </style>
+
 </resources>

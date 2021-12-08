@@ -5,10 +5,20 @@ import com.boredom.cinema_food.R
 object ObjectMaper {
     fun getMoviePrice(itemName: String?): Int? {
         val prices = HashMap<String, Int>()
-        prices["Rons Gone Wrong"] = 48_000
+        prices["Rons Gone Wrong"] = 40_000
         prices["The Last Duel"] = 30_000
         prices["Earwig and the Witch"] = 30_000
-        prices["Dune"] = 48_000
+        prices["Dune"] = 40_000
+        prices["Aquaman"] = 30_000
+        prices["Fantastic Beasts: The Crimes of Grindelwald"] = 40_000
+        prices["How to Train Your Dragon"] = 30_000
+        prices["Avengers: Infinity War"] = 40_000
+        prices["Mortal Engines"] = 35_000
+        prices["Ralph Breaks the Internet"] = 35_000
+        prices["The Last Duel"] = 35_000
+        prices["Robin Hood"] = 35_000
+        prices["Spider-Man: Far From Home"] = 40_000
+        prices["T - 34"] = 35_000
 
         return prices[itemName]
     }
@@ -19,6 +29,16 @@ object ObjectMaper {
         images["The Last Duel"] = R.drawable.poster_the_last_duel
         images["Earwig and the Witch"] = R.drawable.poster_earwig
         images["Dune"] = R.drawable.poster_dune
+        images["Aquaman"] = R.drawable.poster_aquaman
+        images["Fantastic Beasts: The Crimes of Grindelwald"] = R.drawable.poster_crimes
+        images["How to Train Your Dragon"] = R.drawable.poster_how_to_train
+        images["Avengers: Infinity War"] = R.drawable.poster_infinity_war
+        images["Mortal Engines"] = R.drawable.poster_mortal_engines
+        images["Ralph Breaks the Internet"] = R.drawable.poster_ralph
+        images["The Last Duel"] = R.drawable.poster_the_last_duel
+        images["Robin Hood"] = R.drawable.poster_robin_hood
+        images["Spider-Man: Far From Home"] = R.drawable.poster_spiderman
+        images["T - 34"] = R.drawable.poster_t34
 
         return images[itemName]
     }

@@ -21,9 +21,8 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
-
-
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

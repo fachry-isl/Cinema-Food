@@ -1,11 +1,10 @@
 package com.boredom.cinema_food.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
+import com.boredom.cinema_food.data.entity.MovieEntity
 
 @Dao
 interface CinemaDao {
@@ -14,6 +13,12 @@ interface CinemaDao {
 
     @Insert
     fun insertItemOrder(itemOrderEntity: ItemOrderEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertMovieAll(vararg movieEntity: MovieEntity)
+
+    @RawQuery(observedEntities = [MovieEntity::class])
+    fun getAllMovies(query: SupportSQLiteQuery): LiveData<List<MovieEntity>>
 
     @Delete
     fun deleteItemOrder(itemOrderEntity: ItemOrderEntity)

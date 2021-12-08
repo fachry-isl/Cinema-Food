@@ -4,9 +4,18 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
+import com.boredom.cinema_food.data.entity.MovieEntity
+import com.boredom.cinema_food.utils.DataDummy
+import org.json.JSONException
+import java.util.concurrent.Executors
 
-@Database(entities = [ItemOrderEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [ItemOrderEntity::class, MovieEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class CinemaDatabase : RoomDatabase() {
     abstract fun cinemaDao(): CinemaDao
 
@@ -21,9 +30,37 @@ abstract class CinemaDatabase : RoomDatabase() {
                     context.applicationContext,
                     CinemaDatabase::class.java,
                     "Cinema.db"
-                ).build().apply {
-                    INSTANCE = this
+                ).addCallback(object : Callback() {
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        fillWithStartingData()
+                    }
+                })
+                    .build().apply {
+                        INSTANCE = this
+                    }
+            }
+
+        private fun fillWithStartingData() {
+            Executors.newSingleThreadExecutor().execute {
+                val movie = DataDummy.generateDummyMovies()
+                try {
+                    for (item in movie) {
+                        INSTANCE?.cinemaDao()?.insertMovieAll(
+                            MovieEntity(
+                                item.movieId,
+                                item.title,
+                                item.image,
+                                item.description,
+                                item.ticketRemaining,
+                                item.time,
+                                item.day
+                            )
+                        )
+                    }
+                } catch (exception: JSONException) {
+                    exception.printStackTrace()
                 }
             }
+        }
     }
 }

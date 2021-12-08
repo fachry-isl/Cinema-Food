@@ -229,6 +229,7 @@ class OrderActivity : AppCompatActivity() {
         }
     }
 
+
     private fun populateMovieInformation(movie: MovieEntity) {
         Glide.with(applicationContext)
             .load(movie.image)

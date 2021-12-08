@@ -12,7 +12,7 @@ import com.boredom.cinema_food.ui.home.order.OrderActivity.Companion.EXTRA_MOVIE
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class HomeAdapter(private val listener: OnItemClickListener) :
+class HomeAdapter() :
     RecyclerView.Adapter<HomeAdapter.MovieViewHolder>() {
     private var listMovies = ArrayList<MovieEntity>()
 
@@ -44,10 +44,11 @@ class HomeAdapter(private val listener: OnItemClickListener) :
             binding.tvMovieRemaining.text = remainedText
 
             itemView.setOnClickListener {
-                listener.onItemClick(items)
-                val p0 = Intent(itemView.context, OrderActivity::class.java)
-                p0.putExtra(EXTRA_MOVIE, items)
-                itemView.context.startActivity(p0)
+                Intent(itemView.context, OrderActivity::class.java).apply {
+                    putExtra(EXTRA_MOVIE, items)
+                    itemView.context.startActivity(this)
+                }
+
             }
         }
     }
@@ -56,8 +57,4 @@ class HomeAdapter(private val listener: OnItemClickListener) :
 
     class MovieViewHolder(val binding: ItemMovieNowPlayingBinding) :
         RecyclerView.ViewHolder(binding.root)
-
-    interface OnItemClickListener {
-        fun onItemClick(items: MovieEntity)
-    }
 }

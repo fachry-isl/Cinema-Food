@@ -3,6 +3,8 @@ package com.boredom.cinema_food.data
 import android.content.Context
 import androidx.lifecycle.LiveData
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
+import com.boredom.cinema_food.data.entity.MovieEntity
+import com.boredom.cinema_food.utils.DayUtils
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -31,6 +33,11 @@ class CinemaFoodRepository(
 
     fun getOrders(): LiveData<List<ItemOrderEntity>> {
         return cinemaDao.getItemOrders()
+    }
+
+    fun getMovies(sort: String): LiveData<List<MovieEntity>> {
+        val query = DayUtils.getSortedQuery(sort)
+        return cinemaDao.getAllMovies(query)
     }
 
     fun insertItemOrder(order: ItemOrderEntity) {

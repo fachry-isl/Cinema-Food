@@ -46,4 +46,20 @@
     <string name="plus_item_quantity_icon">plus item quantity icon</string>
     <string name="minus_item_quantity_icon">minus item quantity icon</string>
     <string name="food_image">food image</string>
+    <string name="waiting_to_order">Waiting to order</string>
+    <string name="no_item_cart">No item in your cart you can add some</string>
+    <string name="m_caffe">M - Caffe</string>
+    <string name="fantastic_beast_the_crimes_of_grindelwald">Fantastic Beast: The Crimes of Grindelwald</string>
+    <string name="empty_cart_image">Empty Cart Image</string>
+    <string name="playing_on">Playing on</string>
+
+    <string-array name="planets_array">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
 </resources>

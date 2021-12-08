@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.boredom.cinema_food.data.CinemaFoodRepository
 import com.boredom.cinema_food.ui.cart.CartViewModel
+import com.boredom.cinema_food.ui.home.HomeViewModel
 import com.boredom.cinema_food.ui.home.order.OrderViewModel
 
 class ViewModelFactory private constructor(private val mCinemaFoodRepository: CinemaFoodRepository) :
@@ -23,6 +24,9 @@ class ViewModelFactory private constructor(private val mCinemaFoodRepository: Ci
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                HomeViewModel(mCinemaFoodRepository) as T
+            }
             modelClass.isAssignableFrom(CartViewModel::class.java) -> {
                 CartViewModel(mCinemaFoodRepository) as T
             }

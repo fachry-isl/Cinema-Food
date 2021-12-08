@@ -35,10 +35,12 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Init view model
         val factory = ViewModelFactory.getInstance(requireContext())
         viewModel = ViewModelProvider(this, factory)[CartViewModel::class.java]
 
-
+        // Observ orders value inside showRecyclerView fuction
         viewModel.orders.observe(viewLifecycleOwner, Observer(this::showRecyclerView))
     }
 
@@ -66,6 +68,13 @@ class CartFragment : Fragment() {
             adapter = cartAdapter
         }
 
+        // If the data is not empty we hide the illustrator image
+        if (cartAdapter.itemCount != 0) {
+            showIllustrator(false)
+        } else {
+            showIllustrator(true)
+        }
+
         binding.tvTotalCartItems.text = "Total (${orders.size} items)"
 
         val totalPrice = ArrayList<Int>()
@@ -73,6 +82,18 @@ class CartFragment : Fragment() {
             item.itemQuantity?.let { item.itemPrice?.times(it) }?.let { totalPrice.add(it) }
         }
         binding.tvTotalPrice.text = "Rp.${totalPrice.sum()}"
+    }
+
+    private fun showIllustrator(isIllustrator: Boolean) {
+        if (isIllustrator) {
+            binding.ivIllustrator.visibility = View.VISIBLE
+            binding.tvIllustrator1.visibility = View.VISIBLE
+            binding.tvIllustrator2.visibility = View.VISIBLE
+        } else {
+            binding.ivIllustrator.visibility = View.GONE
+            binding.tvIllustrator1.visibility = View.GONE
+            binding.tvIllustrator2.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {
