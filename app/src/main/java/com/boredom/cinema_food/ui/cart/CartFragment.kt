@@ -1,6 +1,7 @@
 package com.boredom.cinema_food.ui.cart
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.databinding.FragmentCartBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
+import com.boredom.cinema_food.ui.cart.checkout.CheckoutActivity
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CartFragment : Fragment() {
 
@@ -40,8 +46,18 @@ class CartFragment : Fragment() {
         val factory = ViewModelFactory.getInstance(requireContext())
         viewModel = ViewModelProvider(this, factory)[CartViewModel::class.java]
 
-        // Observ orders value inside showRecyclerView fuction
+        // Observe orders value inside showRecyclerView function
         viewModel.orders.observe(viewLifecycleOwner, Observer(this::showRecyclerView))
+
+        setupOrderButton()
+    }
+
+    private fun setupOrderButton() {
+        binding.btnGoCheckout.setOnClickListener {
+            Intent(context, CheckoutActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -53,12 +69,12 @@ class CartFragment : Fragment() {
 
             override fun onItemPlus(itemId: Int) {
                 viewModel.plusQuantityById(itemId)
-                viewModel.constrainQuantity()
+                viewModel.constraintItemQuantity()
             }
 
             override fun onItemMinus(itemId: Int) {
                 viewModel.minusQuantityById(itemId)
-                viewModel.constrainQuantity()
+                viewModel.constraintItemQuantity()
             }
         })
         cartAdapter.setCarts(orders)
@@ -75,13 +91,20 @@ class CartFragment : Fragment() {
             showIllustrator(true)
         }
 
-        binding.tvTotalCartItems.text = "Total (${orders.size} items)"
+        //Prepare number formatter
+        val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
+        val symbols = formatter.decimalFormatSymbols
+
+        symbols.groupingSeparator = '.'
+        formatter.decimalFormatSymbols = symbols
+
+        binding.tvTotalCartItems.text = "Total (${formatter.format(orders.size)} items)"
 
         val totalPrice = ArrayList<Int>()
         for (item in orders) {
             item.itemQuantity?.let { item.itemPrice?.times(it) }?.let { totalPrice.add(it) }
         }
-        binding.tvTotalPrice.text = "Rp.${totalPrice.sum()}"
+        binding.tvTotalPrice.text = "Rp.${formatter.format(totalPrice.sum())}"
     }
 
     private fun showIllustrator(isIllustrator: Boolean) {

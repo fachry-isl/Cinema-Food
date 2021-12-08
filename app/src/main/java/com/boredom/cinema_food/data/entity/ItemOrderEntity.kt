@@ -23,7 +23,13 @@ data class ItemOrderEntity(
     var itemPrice: Int?,
 
     @ColumnInfo(name = "item_quantity")
-    var itemQuantity: Int? = null
+    var itemQuantity: Int? = null,
+
+    @ColumnInfo(name = "ismovie")
+    var isMovie: Boolean = false,
+
+    @ColumnInfo(name = "movie_id")
+    var movieId: Int = 0
 )
 
 

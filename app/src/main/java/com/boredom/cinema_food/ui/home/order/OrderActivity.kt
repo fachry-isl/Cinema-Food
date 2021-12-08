@@ -41,11 +41,7 @@ class OrderActivity : AppCompatActivity() {
         binding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setUpAddOrder()
         orderedItem = OrderEntity()
-
-        val factory = ViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory)[OrderViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
@@ -53,8 +49,14 @@ class OrderActivity : AppCompatActivity() {
             if (movie != null) {
                 populateMovieInformation(movie)
                 orderedItem.movie = movie.title
+                setUpAddOrder(movie.movieId)
             }
         }
+
+
+        val factory = ViewModelFactory.getInstance(this)
+        viewModel = ViewModelProvider(this, factory)[OrderViewModel::class.java]
+
 
         val rvFood = binding.rvFood
         val foodAdapter = FoodAdapter(object : FoodAdapter.OnItemClickListener {
@@ -154,7 +156,7 @@ class OrderActivity : AppCompatActivity() {
         }
     }
 
-    private fun setUpAddOrder() {
+    private fun setUpAddOrder(movieId: Int) {
         binding.btnAddOrder.setOnClickListener {
             if (orderedItem.movie != null) {
                 val itemMovie =
@@ -164,7 +166,9 @@ class OrderActivity : AppCompatActivity() {
                         getMovieImage(orderedItem.movie),
                         orderedItem.movie,
                         getMoviePrice(orderedItem.movie),
-                        1
+                        1,
+                        true,
+                        movieId
                     )
                 viewModel.insertItemOrder(itemMovie)
             }

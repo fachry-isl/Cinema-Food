@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.boredom.cinema_food.data.CinemaFoodRepository
 import com.boredom.cinema_food.ui.cart.CartViewModel
+import com.boredom.cinema_food.ui.cart.checkout.CheckoutViewModel
 import com.boredom.cinema_food.ui.home.HomeViewModel
 import com.boredom.cinema_food.ui.home.order.OrderViewModel
 
@@ -32,6 +33,9 @@ class ViewModelFactory private constructor(private val mCinemaFoodRepository: Ci
             }
             modelClass.isAssignableFrom(OrderViewModel::class.java) -> {
                 OrderViewModel(mCinemaFoodRepository) as T
+            }
+            modelClass.isAssignableFrom(CheckoutViewModel::class.java) -> {
+                CheckoutViewModel(mCinemaFoodRepository) as T
             }
             else -> {
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

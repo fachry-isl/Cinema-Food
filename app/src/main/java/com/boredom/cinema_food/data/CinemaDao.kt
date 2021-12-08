@@ -30,5 +30,5 @@ interface CinemaDao {
     fun plusQuantityWithId(id: Int)
 
     @Query("UPDATE item_order SET item_quantity = 1 WHERE item_quantity = 0")
-    fun constraintQuantity()
+    fun constraintItemQuantity()
 }

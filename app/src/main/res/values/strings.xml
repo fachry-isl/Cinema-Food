@@ -52,6 +52,24 @@
     <string name="fantastic_beast_the_crimes_of_grindelwald">Fantastic Beast: The Crimes of Grindelwald</string>
     <string name="empty_cart_image">Empty Cart Image</string>
     <string name="playing_on">Playing on</string>
+    <string name="checkout">Checkout</string>
+    <string name="delivery_method">Delivery Method</string>
+    <string name="at_studio">At Studio</string>
+    <string name="take_away">Take Away</string>
+    <string name="cash">Cash</string>
+    <string name="digital_wallet">Digital Wallet</string>
+    <string name="promo">Promo</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="discount_payday">Discount Payday</string>
+    <string name="_1_voucher_you_safe_rp_40_000">1 voucher, You safe Rp.40.000!</string>
+    <string name="ringkasan_pembayaran">Ringkasan Pembayaran</string>
+    <string name="subtotal_order_3_items">Subtotal Order (3 items)</string>
+    <string name="discount">Discount</string>
+    <string name="total_payment">Total Payment</string>
+    <string name="rp_40_000">Rp.40.000</string>
+    <string name="rp_38_000">Rp.38.000</string>
+    <string name="discount_image">Discount Image</string>
+    <string name="navigate_button_to_discount_page">Navigate button to discount page button</string>
 
     <string-array name="planets_array">
         <item>Sunday</item>

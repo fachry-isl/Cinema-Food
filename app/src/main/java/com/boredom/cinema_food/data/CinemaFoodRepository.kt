@@ -56,7 +56,7 @@ class CinemaFoodRepository(
         executor.execute { cinemaDao.plusQuantityWithId(id) }
     }
 
-    fun constrainQuantity() {
-        executor.execute { cinemaDao.constraintQuantity() }
+    fun constraintItemQuantity() {
+        executor.execute { cinemaDao.constraintItemQuantity() }
     }
 }

@@ -52,4 +52,17 @@
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="togglebutton_style" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/greenlight</item>
+        <item name="android:textColor">@drawable/toggle_btn_text_color_selector</item>
+        <item name="backgroundTint">@drawable/toggle_btn_bg_color_selector</item>
+        <item name="android:textAppearance">@style/TextAppearance_toggle_style</item>
+    </style>
+
+    <style name="TextAppearance_toggle_style" parent="TextAppearance.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

@@ -9,6 +9,10 @@ import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.databinding.ItemCartBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CartAdapter(private var listener: OnItemClickListener) :
     RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
@@ -38,7 +42,15 @@ class CartAdapter(private var listener: OnItemClickListener) :
                     RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error)
                 )
                 .into(binding.ivItemCart)
-            binding.tvItemPrice.text = "Rp.${items.itemPrice?.times(items.itemQuantity!!)}"
+
+            //Prepare formatter for number
+            val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
+            val symbols = formatter.decimalFormatSymbols
+            symbols.groupingSeparator = '.'
+            formatter.decimalFormatSymbols = symbols
+
+            binding.tvItemPrice.text =
+                "Rp.${formatter.format(items.itemPrice?.times(items.itemQuantity!!))}"
 
             binding.ivItemRemove.setOnClickListener {
                 listener.onItemRemove(items)

@@ -1,4 +1,4 @@
-package com.boredom.cinema_food.ui.cart
+package com.boredom.cinema_food.ui.cart.checkout
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -7,7 +7,7 @@ import com.boredom.cinema_food.data.CinemaFoodRepository
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import kotlinx.coroutines.launch
 
-class CartViewModel(private val mCinemaFoodRepository: CinemaFoodRepository) : ViewModel() {
+class CheckoutViewModel(private val mCinemaFoodRepository: CinemaFoodRepository) : ViewModel() {
     val orders: LiveData<List<ItemOrderEntity>> = mCinemaFoodRepository.getOrders()
     fun deleteOrder(order: ItemOrderEntity) {
         viewModelScope.launch {
