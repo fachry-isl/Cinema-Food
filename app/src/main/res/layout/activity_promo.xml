@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cart.CartFragment">
+    android:background="@color/light_gray"
+    tools:context=".ui.promo.PromoActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar_layout"
@@ -21,9 +22,8 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="85dp"
+                android:layout_height="70dp"
                 android:background="@color/white"
-                android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cart"
+                android:text="@string/promo"
                 android:textColor="@color/dark_gray"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -42,75 +42,67 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        android:id="@+id/cardView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
+        app:layout_constraintTop_toBottomOf="@id/toolbar_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_cart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_cart"
-                tools:visibility="invisible" />
-
-            <ImageView
-                android:id="@+id/iv_illustrator"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:contentDescription="@string/empty_cart_image"
-                android:src="@drawable/ic_cart_empty"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/rv_cart"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/rv_cart" />
-
-            <TextView
-                android:id="@+id/tv_illustrator1"
-                style="@style/illustrator_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <EditText
+                android:id="@+id/edt_promo_code"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/waiting_to_order"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/iv_illustrator"
-                app:layout_constraintStart_toStartOf="@+id/iv_illustrator"
-                app:layout_constraintTop_toBottomOf="@+id/iv_illustrator" />
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="@null"
+                android:hint="@string/input_promo_code"
+                android:inputType="text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_input_coupon_code"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_illustrator2"
-                style="@style/illustrator_subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/no_item_cart"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/iv_illustrator"
-                app:layout_constraintStart_toStartOf="@+id/iv_illustrator"
-                app:layout_constraintTop_toBottomOf="@+id/tv_illustrator1" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_input_coupon_code"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_green_corner_radius"
+                android:text="@string/apply"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/edt_promo_code"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/edt_promo_code" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_coupon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView1"
+        tools:itemCount="4"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_promo_coupon" />
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cardView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="4dp"
@@ -124,45 +116,49 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_total_cart_items"
+                android:id="@+id/tv_title_cost_saved"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/total_3_items"
+                android:text="@string/you_can_save"
+                android:textColor="@color/black"
                 android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
-                android:id="@+id/tv_total_price"
+                android:id="@+id/tv_total_payment_cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="@string/rp_78_000"
-                android:textColor="@color/dark_gray"
-                android:textSize="22sp"
+                android:text="@string/rp_38_000"
+                android:textColor="@color/black"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_total_cart_items"
-                app:layout_constraintTop_toBottomOf="@id/tv_total_cart_items" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_cost_saved" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_goCheckout"
+                android:id="@+id/btn_apply_coupon"
                 android:layout_width="110dp"
                 android:layout_height="43dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/button_green_corner_radius"
                 android:fontFamily="sans-serif"
-                android:text="@string/order"
+                android:text="@string/use_promo"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 

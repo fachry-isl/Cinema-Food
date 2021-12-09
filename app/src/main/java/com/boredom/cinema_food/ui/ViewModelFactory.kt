@@ -8,6 +8,7 @@ import com.boredom.cinema_food.ui.cart.CartViewModel
 import com.boredom.cinema_food.ui.cart.checkout.CheckoutViewModel
 import com.boredom.cinema_food.ui.home.HomeViewModel
 import com.boredom.cinema_food.ui.home.order.OrderViewModel
+import com.boredom.cinema_food.ui.promo.PromoViewModel
 
 class ViewModelFactory private constructor(private val mCinemaFoodRepository: CinemaFoodRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -36,6 +37,9 @@ class ViewModelFactory private constructor(private val mCinemaFoodRepository: Ci
             }
             modelClass.isAssignableFrom(CheckoutViewModel::class.java) -> {
                 CheckoutViewModel(mCinemaFoodRepository) as T
+            }
+            modelClass.isAssignableFrom(PromoViewModel::class.java) -> {
+                PromoViewModel(mCinemaFoodRepository) as T
             }
             else -> {
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

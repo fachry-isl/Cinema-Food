@@ -18,9 +18,11 @@ class CartAdapter(private var listener: OnItemClickListener) :
     RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     private var orderList = ArrayList<ItemOrderEntity>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setCarts(list: List<ItemOrderEntity>) {
         orderList.clear()
         orderList.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -51,18 +53,18 @@ class CartAdapter(private var listener: OnItemClickListener) :
 
             binding.tvItemPrice.text =
                 "Rp.${formatter.format(items.itemPrice?.times(items.itemQuantity!!))}"
-
             binding.ivItemRemove.setOnClickListener {
-                listener.onItemRemove(items)
+                listener.onItemRemove(items, position)
             }
 
             binding.tvItemQuantity.text = items.itemQuantity.toString()
 
             binding.ivItemPlus.setOnClickListener {
-                listener.onItemPlus(items.itemId)
+                listener.onItemPlus(items.itemId, position)
+
             }
             binding.ivItemMinus.setOnClickListener {
-                listener.onItemMinus(items.itemId)
+                listener.onItemMinus(items.itemId, position)
             }
 
         }
@@ -73,8 +75,8 @@ class CartAdapter(private var listener: OnItemClickListener) :
     class CartViewHolder(val binding: ItemCartBinding) : RecyclerView.ViewHolder(binding.root)
 
     interface OnItemClickListener {
-        fun onItemRemove(item: ItemOrderEntity)
-        fun onItemPlus(itemId: Int)
-        fun onItemMinus(itemId: Int)
+        fun onItemRemove(item: ItemOrderEntity, position: Int)
+        fun onItemPlus(itemId: Int, position: Int)
+        fun onItemMinus(itemId: Int, position: Int)
     }
 }

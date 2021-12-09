@@ -62,7 +62,6 @@
     <string name="payment_method">Payment Method</string>
     <string name="discount_payday">Discount Payday</string>
     <string name="_1_voucher_you_safe_rp_40_000">1 voucher, You safe Rp.40.000!</string>
-    <string name="ringkasan_pembayaran">Ringkasan Pembayaran</string>
     <string name="subtotal_order_3_items">Subtotal Order (3 items)</string>
     <string name="discount">Discount</string>
     <string name="total_payment">Total Payment</string>
@@ -70,6 +69,14 @@
     <string name="rp_38_000">Rp.38.000</string>
     <string name="discount_image">Discount Image</string>
     <string name="navigate_button_to_discount_page">Navigate button to discount page button</string>
+    <string name="use_promo">Use Promo</string>
+    <string name="you_can_save">You can save</string>
+    <string name="apply">Apply</string>
+    <string name="last_for_3_days">Last for 3 days</string>
+    <string name="discount_for_rp_9000">Discount for Rp.9000</string>
+    <string name="you_can_save_with_promo">You can save with promo</string>
+    <string name="payment_summary">Payment Summary</string>
+    <string name="input_promo_code">Input promo code</string>
 
     <string-array name="planets_array">
         <item>Sunday</item>

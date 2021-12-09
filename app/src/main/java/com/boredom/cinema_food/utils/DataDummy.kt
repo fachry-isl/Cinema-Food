@@ -1,6 +1,7 @@
 package com.boredom.cinema_food.utils
 
 import com.boredom.cinema_food.R
+import com.boredom.cinema_food.data.entity.CouponEntity
 import com.boredom.cinema_food.data.entity.FoodEntity
 import com.boredom.cinema_food.data.entity.MovieEntity
 
@@ -400,6 +401,52 @@ object DataDummy {
                 R.drawable.toast,
             )
         )
+        return list
+    }
+
+    fun generateDummyCoupon(): List<CouponEntity> {
+        val list = ArrayList<CouponEntity>()
+
+        list.add(
+            CouponEntity(
+                1,
+                "First order, discount for 12000",
+                "Last for 3 days",
+                12000,
+                259200000
+            )
+        )
+
+        list.add(
+            CouponEntity(
+                2,
+                "Discount for Rp.9000",
+                "Last for 3 days",
+                9000,
+                259200000
+            )
+        )
+
+        list.add(
+            CouponEntity(
+                3,
+                "Discount for Rp.9000",
+                "Last for 3 days",
+                9000,
+                259200000
+            )
+        )
+
+        list.add(
+            CouponEntity(
+                4,
+                "Discount for Rp.9000",
+                "Last for 3 days",
+                9000,
+                259200000
+            )
+        )
+
         return list
     }
 }

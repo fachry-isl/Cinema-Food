@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 
 class CartViewModel(private val mCinemaFoodRepository: CinemaFoodRepository) : ViewModel() {
     val orders: LiveData<List<ItemOrderEntity>> = mCinemaFoodRepository.getOrders()
+
     fun deleteOrder(order: ItemOrderEntity) {
         viewModelScope.launch {
             mCinemaFoodRepository.deleteItemOrder(order)

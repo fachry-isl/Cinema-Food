@@ -2,6 +2,7 @@ package com.boredom.cinema_food.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+import com.boredom.cinema_food.data.entity.CouponEntity
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.data.entity.MovieEntity
 import com.boredom.cinema_food.utils.DayUtils
@@ -38,6 +39,14 @@ class CinemaFoodRepository(
     fun getMovies(sort: String): LiveData<List<MovieEntity>> {
         val query = DayUtils.getSortedQuery(sort)
         return cinemaDao.getAllMovies(query)
+    }
+
+    fun getCoupons(): LiveData<List<CouponEntity>> {
+        return cinemaDao.getAllCoupons()
+    }
+
+    fun deleteCoupon(couponEntity: CouponEntity) {
+        executor.execute { cinemaDao.deleteCoupon(couponEntity) }
     }
 
     fun insertItemOrder(order: ItemOrderEntity) {

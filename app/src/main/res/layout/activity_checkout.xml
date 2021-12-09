@@ -115,7 +115,6 @@
                             android:textAlignment="center" />
 
                     </com.google.android.material.button.MaterialButtonToggleGroup>
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -136,7 +135,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:itemCount="3"
+                    tools:itemCount="1"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_cart" />
 
@@ -252,36 +251,41 @@
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
                                 android:contentDescription="@string/discount_image"
                                 android:src="@drawable/ic_discount"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@id/tv_discount_title" />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/tv_discount_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="0dp"
                                 android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:text="@string/discount_payday"
+                                android:gravity="center_vertical"
+                                android:text="@string/you_can_save_with_promo"
                                 android:textColor="@color/black"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 android:textStyle="bold"
+                                app:layout_constraintBottom_toTopOf="@+id/tv_discount_description"
                                 app:layout_constraintStart_toEndOf="@+id/imageView2"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
+                                android:id="@+id/tv_discount_description"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="4dp"
                                 android:text="@string/_1_voucher_you_safe_rp_40_000"
                                 android:textColor="@color/black"
+                                android:visibility="gone"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="@+id/tv_discount_title"
-                                app:layout_constraintTop_toBottomOf="@+id/tv_discount_title" />
+                                app:layout_constraintStart_toStartOf="@+id/tv_discount_title" />
 
                             <ImageButton
+                                android:id="@+id/btn_addCoupon"
                                 android:layout_width="48dp"
                                 android:layout_height="48dp"
                                 android:layout_marginEnd="8dp"
@@ -300,7 +304,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        android:text="@string/ringkasan_pembayaran"
+                        android:text="@string/payment_summary"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/cardView5"
@@ -342,7 +346,7 @@
                                 android:layout_marginTop="16dp"
                                 android:text="@string/discount"
                                 android:textColor="@color/black"
-                                android:visibility="visible"
+                                android:visibility="gone"
                                 app:layout_constraintStart_toStartOf="@+id/tv_subtotal_item"
                                 app:layout_constraintTop_toBottomOf="@id/tv_subtotal_item" />
 
@@ -378,6 +382,7 @@
                                 android:layout_marginEnd="16dp"
                                 android:text="@string/rp_40_000"
                                 android:textColor="@color/black"
+                                android:visibility="gone"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/tv_subtotal_cost" />
 
