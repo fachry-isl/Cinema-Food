@@ -87,19 +87,19 @@ class CartFragment : Fragment() {
             // Sum prices using function List.Sum()
             binding.tvTotalPrice.text = "Rp.${formatter.format(totalPrice.sum())}"
 
+            // Show illustrator when data order empty
+            if (cartAdapter.itemCount == 0) {
+                showIllustrator(true)
+            } else {
+                showIllustrator(false)
+            }
+
         })
 
         with(binding.rvCart) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = cartAdapter
-        }
-
-        // Show illustrator when data order empty
-        if (cartAdapter.itemCount == 0) {
-            showIllustrator(true)
-        } else {
-            showIllustrator(false)
         }
 
         setupOrderButton()
