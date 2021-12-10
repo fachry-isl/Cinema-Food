@@ -232,7 +232,7 @@ class OrderActivity : AppCompatActivity() {
             }
             // Add intent to show toast in HomeActivity
             Intent(this, HomeActivity::class.java).apply {
-                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 putExtra(EXTRA_TOAST, true)
                 startActivity(this)
             }
