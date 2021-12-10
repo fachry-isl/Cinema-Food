@@ -1,5 +1,6 @@
 package com.boredom.cinema_food.ui.home.order
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,8 @@ import com.boredom.cinema_food.data.entity.MovieEntity
 import com.boredom.cinema_food.data.entity.OrderEntity
 import com.boredom.cinema_food.databinding.ActivityOrderBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
+import com.boredom.cinema_food.ui.home.HomeActivity
+import com.boredom.cinema_food.ui.home.HomeActivity.Companion.EXTRA_TOAST
 import com.boredom.cinema_food.utils.DataDummy
 import com.boredom.cinema_food.utils.ObjectMaper.getCoffeeImage
 import com.boredom.cinema_food.utils.ObjectMaper.getCoffeePrice
@@ -31,9 +34,7 @@ import com.bumptech.glide.request.RequestOptions
 
 class OrderActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOrderBinding
-
     private lateinit var orderedItem: OrderEntity
-
     private lateinit var viewModel: OrderViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -162,7 +163,7 @@ class OrderActivity : AppCompatActivity() {
                 val itemMovie =
                     ItemOrderEntity(
                         0,
-                        "Ticket Movie",
+                        "Movie Ticket",
                         getMovieImage(orderedItem.movie),
                         orderedItem.movie,
                         getMoviePrice(orderedItem.movie),
@@ -228,6 +229,12 @@ class OrderActivity : AppCompatActivity() {
                     1
                 )
                 viewModel.insertItemOrder(itemFood)
+            }
+            // Add intent to show toast in HomeActivity
+            Intent(this, HomeActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                putExtra(EXTRA_TOAST, true)
+                startActivity(this)
             }
             finish()
         }

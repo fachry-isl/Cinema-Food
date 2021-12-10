@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     private fun setupSpinner() {
         val spinner = binding.spinner
 
@@ -111,5 +112,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

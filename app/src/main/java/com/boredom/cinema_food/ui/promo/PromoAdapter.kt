@@ -29,7 +29,7 @@ class PromoAdapter(private val listener: OnItemClick) :
 
     override fun onBindViewHolder(holder: PromoViewHolder, position: Int) {
         val items = listCoupons[position]
-        holder.bind(items)
+        holder.bind(items, position)
 
     }
 
@@ -41,12 +41,12 @@ class PromoAdapter(private val listener: OnItemClick) :
     ) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(items: CouponEntity) {
+        fun bind(items: CouponEntity, position: Int) {
             binding.tvDiscountTitle.text = items.title
             binding.tvDiscountDescription.text = items.description
 
 
-            if (checkedPosition == adapterPosition) {
+            if (checkedPosition == position) {
                 binding.itemPromo.strokeWidth = 5
                 binding.itemPromo.strokeColor = itemView.context.getColor(R.color.greenlight)
             } else {
@@ -55,7 +55,7 @@ class PromoAdapter(private val listener: OnItemClick) :
 
             binding.radioBtnItem.setOnClickListener {
                 val lastCheckedPosition = checkedPosition
-                checkedPosition = adapterPosition
+                checkedPosition = position
                 notifyItemChanged(lastCheckedPosition)
                 notifyItemChanged(checkedPosition)
                 listener.itemClickListener(items)
