@@ -250,6 +250,7 @@ class OrderActivity : AppCompatActivity() {
             )
             .into(binding.ivMovieOrder)
         binding.tvTitleMovieOrder.text = movie.title
+        binding.tvTime.text = movie.time
         binding.tvDescMovieOrder.text = movie.description
     }
 
