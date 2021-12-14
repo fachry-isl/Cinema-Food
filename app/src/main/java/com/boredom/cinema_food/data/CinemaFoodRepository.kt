@@ -3,6 +3,7 @@ package com.boredom.cinema_food.data
 import android.content.Context
 import androidx.lifecycle.LiveData
 import com.boredom.cinema_food.data.entity.CouponEntity
+import com.boredom.cinema_food.data.entity.HistoryEntity
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.data.entity.MovieEntity
 import com.boredom.cinema_food.utils.DayUtils
@@ -32,18 +33,18 @@ class CinemaFoodRepository(
         }
     }
 
-    fun getOrders(): LiveData<List<ItemOrderEntity>> {
-        return cinemaDao.getItemOrders()
-    }
+    fun getOrders(): LiveData<List<ItemOrderEntity>> = cinemaDao.getItemOrders()
 
     fun getMovies(sort: String): LiveData<List<MovieEntity>> {
         val query = DayUtils.getSortedQuery(sort)
         return cinemaDao.getAllMovies(query)
     }
 
-    fun getCoupons(): LiveData<List<CouponEntity>> {
-        return cinemaDao.getAllCoupons()
-    }
+    fun getCoupons(): LiveData<List<CouponEntity>> = cinemaDao.getAllCoupons()
+
+    fun getHistories(): LiveData<List<HistoryEntity>> = cinemaDao.getAllHistories()
+
+    fun getItemQuantityWithId(id: Int): LiveData<Int> = cinemaDao.getItemQuantityWithId(id)
 
     fun deleteCoupon(couponEntity: CouponEntity) {
         executor.execute { cinemaDao.deleteCoupon(couponEntity) }
@@ -53,8 +54,16 @@ class CinemaFoodRepository(
         executor.execute { cinemaDao.insertItemOrder(order) }
     }
 
-    fun deleteItemOrder(order: ItemOrderEntity) {
-        executor.execute { cinemaDao.deleteItemOrder(order) }
+    fun insertHistory(history: HistoryEntity) {
+        executor.execute { cinemaDao.insertHistory(history) }
+    }
+
+    fun deleteOrders() {
+        executor.execute { cinemaDao.deleteOrders() }
+    }
+
+    fun deleteOrder(order: ItemOrderEntity) {
+        executor.execute { cinemaDao.deleteOrder(order) }
     }
 
     fun minusQuantityItemOrder(id: Int) {

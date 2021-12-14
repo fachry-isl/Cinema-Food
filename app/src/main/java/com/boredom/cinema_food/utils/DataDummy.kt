@@ -3,6 +3,7 @@ package com.boredom.cinema_food.utils
 import com.boredom.cinema_food.R
 import com.boredom.cinema_food.data.entity.CouponEntity
 import com.boredom.cinema_food.data.entity.FoodEntity
+import com.boredom.cinema_food.data.entity.HistoryEntity
 import com.boredom.cinema_food.data.entity.MovieEntity
 
 object DataDummy {
@@ -444,6 +445,32 @@ object DataDummy {
                 "Last for 3 days",
                 9000,
                 259200000
+            )
+        )
+
+        return list
+    }
+
+    fun generateDummyHistory(): List<HistoryEntity> {
+        val list = ArrayList<HistoryEntity>()
+
+        list.add(
+            HistoryEntity(
+                1,
+                "20 Desember 2020 12:00",
+                "2 x Movie",
+                20000,
+                true
+            )
+        )
+
+        list.add(
+            HistoryEntity(
+                2,
+                "20 Desember 2020 12:00",
+                "2 x Movie",
+                20000,
+                true
             )
         )
 

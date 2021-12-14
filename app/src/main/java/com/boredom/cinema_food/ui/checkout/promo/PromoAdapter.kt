@@ -1,4 +1,4 @@
-package com.boredom.cinema_food.ui.promo
+package com.boredom.cinema_food.ui.checkout.promo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -48,7 +48,7 @@ class PromoAdapter(private val listener: OnItemClick) :
 
             if (checkedPosition == position) {
                 binding.itemPromo.strokeWidth = 5
-                binding.itemPromo.strokeColor = itemView.context.getColor(R.color.greenlight)
+                binding.itemPromo.strokeColor = itemView.context.getColor(R.color.green)
             } else {
                 binding.itemPromo.strokeWidth = 0
             }

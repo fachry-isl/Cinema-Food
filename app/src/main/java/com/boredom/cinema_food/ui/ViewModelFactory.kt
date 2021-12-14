@@ -5,10 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.boredom.cinema_food.data.CinemaFoodRepository
 import com.boredom.cinema_food.ui.cart.CartViewModel
-import com.boredom.cinema_food.ui.cart.checkout.CheckoutViewModel
+import com.boredom.cinema_food.ui.checkout.CheckoutViewModel
+import com.boredom.cinema_food.ui.checkout.promo.PromoViewModel
+import com.boredom.cinema_food.ui.history.HistoryViewModel
 import com.boredom.cinema_food.ui.home.HomeViewModel
 import com.boredom.cinema_food.ui.home.order.OrderViewModel
-import com.boredom.cinema_food.ui.promo.PromoViewModel
 
 class ViewModelFactory private constructor(private val mCinemaFoodRepository: CinemaFoodRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -40,6 +41,9 @@ class ViewModelFactory private constructor(private val mCinemaFoodRepository: Ci
             }
             modelClass.isAssignableFrom(PromoViewModel::class.java) -> {
                 PromoViewModel(mCinemaFoodRepository) as T
+            }
+            modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
+                HistoryViewModel(mCinemaFoodRepository) as T
             }
             else -> {
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

@@ -45,7 +45,7 @@ class FoodAdapter(
         holder.binding.radioBtnItem.isChecked = position == clickedPosition
         if (position == clickedPosition) {
             holder.binding.itemFood.strokeColor =
-                holder.itemView.context.resources.getColor(R.color.greenlight)
+                holder.itemView.context.resources.getColor(R.color.green)
             holder.binding.itemFood.strokeWidth = 5
         } else {
             holder.binding.itemFood.strokeWidth = 0

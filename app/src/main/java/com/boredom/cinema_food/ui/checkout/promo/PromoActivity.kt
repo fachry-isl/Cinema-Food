@@ -1,4 +1,4 @@
-package com.boredom.cinema_food.ui.promo
+package com.boredom.cinema_food.ui.checkout.promo
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.boredom.cinema_food.data.entity.CouponEntity
 import com.boredom.cinema_food.databinding.ActivityPromoBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
-import com.boredom.cinema_food.ui.cart.checkout.CheckoutActivity
-import com.boredom.cinema_food.ui.cart.checkout.CheckoutActivity.Companion.EXTRA_COUPON
+import com.boredom.cinema_food.ui.checkout.CheckoutActivity
+import com.boredom.cinema_food.ui.checkout.CheckoutActivity.Companion.EXTRA_COUPON
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*

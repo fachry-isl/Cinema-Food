@@ -52,7 +52,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             android:text="@string/fried_rice"
-            android:textColor="@color/black"
+            android:textColor="@color/light_black"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/iv_food"

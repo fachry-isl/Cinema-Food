@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="greenlight">#4E8845</color>
+    <color name="green">#4e8845</color>
     <color name="brown">#886345</color>
     <color name="red">#870101</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
+    <color name="light_black">#1d252d</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="light_gray">#e8e8e8</color>
     <color name="dark_gray">#595959</color>
     <color name="gray">#6FB6B6B6</color>
+    <color name="yellow">#ffb02d</color>
 </resources>

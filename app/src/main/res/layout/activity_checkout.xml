@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray"
-    tools:context=".ui.cart.checkout.CheckoutActivity">
+    tools:context=".ui.checkout.CheckoutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/toolbar_layout"
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/checkout"
-                android:textColor="@color/dark_gray"
+                android:textColor="@color/light_black"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -78,13 +78,14 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:text="@string/delivery_method"
-                        android:textColor="@color/black"
+                        android:textColor="@color/light_black"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/btn_group_delivery"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -161,13 +162,14 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:text="@string/payment_method"
-                        android:textColor="@color/black"
+                        android:textColor="@color/light_black"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/btn_group_payment"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -222,7 +224,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:text="@string/promo"
-                        android:textColor="@color/black"
+                        android:textColor="@color/light_black"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -266,7 +268,7 @@
                                 android:layout_marginStart="8dp"
                                 android:gravity="center_vertical"
                                 android:text="@string/you_can_save_with_promo"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toTopOf="@+id/tv_discount_description"
@@ -279,7 +281,7 @@
                                 android:layout_height="0dp"
                                 android:layout_marginBottom="4dp"
                                 android:text="@string/_1_voucher_you_safe_rp_40_000"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 android:visibility="gone"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="@+id/tv_discount_title" />
@@ -335,7 +337,7 @@
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="16dp"
                                 android:text="@string/subtotal_order_3_items"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -345,7 +347,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
                                 android:text="@string/discount"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 android:visibility="gone"
                                 app:layout_constraintStart_toStartOf="@+id/tv_subtotal_item"
                                 app:layout_constraintTop_toBottomOf="@id/tv_subtotal_item" />
@@ -357,7 +359,7 @@
                                 android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
                                 android:text="@string/total_payment"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 android:textStyle="bold"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="@+id/tv_title_discount_summary"
@@ -370,7 +372,7 @@
                                 android:layout_marginTop="16dp"
                                 android:layout_marginEnd="16dp"
                                 android:text="@string/rp_78_000"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -381,7 +383,7 @@
                                 android:layout_marginTop="16dp"
                                 android:layout_marginEnd="16dp"
                                 android:text="@string/rp_40_000"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 android:visibility="gone"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/tv_subtotal_cost" />
@@ -394,7 +396,7 @@
                                 android:layout_marginTop="16dp"
                                 android:layout_marginEnd="16dp"
                                 android:text="@string/rp_38_000"
-                                android:textColor="@color/black"
+                                android:textColor="@color/light_black"
                                 android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@id/tv_discount_cost" />
@@ -427,7 +429,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/total_payment"
-                android:textColor="@color/black"
+                android:textColor="@color/light_black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -441,7 +443,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:text="@string/rp_38_000"
-                android:textColor="@color/black"
+                android:textColor="@color/light_black"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

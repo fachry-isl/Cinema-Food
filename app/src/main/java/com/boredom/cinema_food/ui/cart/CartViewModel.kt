@@ -12,7 +12,7 @@ class CartViewModel(private val mCinemaFoodRepository: CinemaFoodRepository) : V
 
     fun deleteOrder(order: ItemOrderEntity) {
         viewModelScope.launch {
-            mCinemaFoodRepository.deleteItemOrder(order)
+            mCinemaFoodRepository.deleteOrder(order)
         }
     }
 

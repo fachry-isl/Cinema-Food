@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.boredom.cinema_food.data.entity.CouponEntity
+import com.boredom.cinema_food.data.entity.HistoryEntity
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.data.entity.MovieEntity
 import com.boredom.cinema_food.utils.DataDummy
@@ -13,7 +14,7 @@ import org.json.JSONException
 import java.util.concurrent.Executors
 
 @Database(
-    entities = [ItemOrderEntity::class, MovieEntity::class, CouponEntity::class],
+    entities = [ItemOrderEntity::class, MovieEntity::class, CouponEntity::class, HistoryEntity::class],
     version = 1,
     exportSchema = false
 )

@@ -77,6 +77,9 @@
     <string name="you_can_save_with_promo">You can save with promo</string>
     <string name="payment_summary">Payment Summary</string>
     <string name="input_promo_code">Input promo code</string>
+    <string name="no_input">-</string>
+    <string name="processed">Processed</string>
+    <string name="success">Success</string>
 
     <string-array name="planets_array">
         <item>Sunday</item>

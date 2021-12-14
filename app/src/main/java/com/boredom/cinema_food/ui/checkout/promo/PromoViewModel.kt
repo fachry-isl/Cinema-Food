@@ -1,4 +1,4 @@
-package com.boredom.cinema_food.ui.promo
+package com.boredom.cinema_food.ui.checkout.promo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

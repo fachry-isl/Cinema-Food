@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CinemaFood">
         <activity
-            android:name=".ui.promo.PromoActivity"
+            android:name="com.boredom.cinema_food.ui.checkout.promo.PromoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.cart.checkout.CheckoutActivity"
+            android:name="com.boredom.cinema_food.ui.checkout.CheckoutActivity"
             android:exported="false" />
         <activity
             android:name=".ui.home.order.OrderActivity"

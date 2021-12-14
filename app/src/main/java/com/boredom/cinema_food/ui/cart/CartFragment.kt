@@ -12,12 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.databinding.FragmentCartBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
-import com.boredom.cinema_food.ui.cart.checkout.CheckoutActivity
+import com.boredom.cinema_food.ui.checkout.CheckoutActivity
+import com.boredom.cinema_food.utils.NumberFormatterUtils.format
 import com.google.android.material.snackbar.Snackbar
-import java.text.DecimalFormat
-import java.text.NumberFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 class CartFragment : Fragment() {
 
@@ -71,24 +68,17 @@ class CartFragment : Fragment() {
         viewModel.orders.observe(viewLifecycleOwner, { orders ->
             cartAdapter.setCarts(orders)
 
-            //Prepare number formatter
-            val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
-            val symbols = formatter.decimalFormatSymbols
-
-            symbols.groupingSeparator = '.'
-            formatter.decimalFormatSymbols = symbols
-
-            binding.tvTotalCartItems.text = "Total (${formatter.format(orders.size)} items)"
+            binding.tvTotalCartItems.text = "Total (${format(orders.size)} items)"
 
             val totalPrice = ArrayList<Int>()
-            // Times all item with quantity and store it in List<Int>
+            // Times all items with quantity and store it in List<Int>
             for (item in orders) {
                 item.itemQuantity?.let { item.itemPrice?.times(it) }?.let { totalPrice.add(it) }
             }
             // Sum prices using function List.Sum()
-            binding.tvTotalPrice.text = "Rp.${formatter.format(totalPrice.sum())}"
+            binding.tvTotalPrice.text = "Rp.${format(totalPrice.sum())}"
 
-            // Show illustrator when data order empty
+            // Show illustrator when order data is empty
             if (cartAdapter.itemCount == 0) {
                 showIllustrator(true)
             } else {
