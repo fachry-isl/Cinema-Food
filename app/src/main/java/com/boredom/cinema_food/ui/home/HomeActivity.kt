@@ -19,8 +19,8 @@ class HomeActivity : AppCompatActivity() {
 
         val extras = intent.extras
         if (extras != null) {
-            val isToast = extras.getBoolean(EXTRA_TOAST)
-            showSnackbar(isToast)
+            val isSnackbar = extras.getBoolean(EXTRA_SNACKBAR)
+            showSnackbar(isSnackbar)
         }
 
         val navView = binding.bottomNavMain
@@ -30,18 +30,18 @@ class HomeActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    private fun showSnackbar(isToast: Boolean) {
-        if (isToast) {
+    private fun showSnackbar(isSnackbar: Boolean) {
+        if (isSnackbar) {
             Snackbar.make(
                 binding.layoutHomeActivity,
-                "Order is added to cart",
+                "Order is Added to Cart",
                 Snackbar.LENGTH_SHORT
             ).show()
         }
     }
 
     companion object {
-        const val EXTRA_TOAST = "show toast"
+        const val EXTRA_SNACKBAR = "show_snackbar"
     }
 
 }

@@ -13,6 +13,7 @@ import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import com.boredom.cinema_food.databinding.FragmentCartBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
 import com.boredom.cinema_food.ui.cart.checkout.CheckoutActivity
+import com.google.android.material.snackbar.Snackbar
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
@@ -93,7 +94,7 @@ class CartFragment : Fragment() {
             } else {
                 showIllustrator(false)
             }
-
+            setupOrderButton(cartAdapter)
         })
 
         with(binding.rvCart) {
@@ -101,14 +102,22 @@ class CartFragment : Fragment() {
             setHasFixedSize(true)
             adapter = cartAdapter
         }
-
-        setupOrderButton()
     }
 
-    private fun setupOrderButton() {
-        binding.btnGoCheckout.setOnClickListener {
-            Intent(context, CheckoutActivity::class.java).apply {
-                startActivity(this)
+    private fun setupOrderButton(cartAdapter: CartAdapter) {
+        if (cartAdapter.itemCount != 0) {
+            binding.btnGoCheckout.setOnClickListener {
+                Intent(context, CheckoutActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        } else {
+            binding.btnGoCheckout.setOnClickListener {
+                Snackbar.make(
+                    binding.toolbarLayout,
+                    "No Item in Cart",
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
         }
     }

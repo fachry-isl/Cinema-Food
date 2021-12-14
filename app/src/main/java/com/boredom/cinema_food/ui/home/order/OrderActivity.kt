@@ -13,7 +13,7 @@ import com.boredom.cinema_food.data.entity.OrderEntity
 import com.boredom.cinema_food.databinding.ActivityOrderBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
 import com.boredom.cinema_food.ui.home.HomeActivity
-import com.boredom.cinema_food.ui.home.HomeActivity.Companion.EXTRA_TOAST
+import com.boredom.cinema_food.ui.home.HomeActivity.Companion.EXTRA_SNACKBAR
 import com.boredom.cinema_food.utils.DataDummy
 import com.boredom.cinema_food.utils.ObjectMaper.getCoffeeImage
 import com.boredom.cinema_food.utils.ObjectMaper.getCoffeePrice
@@ -233,7 +233,7 @@ class OrderActivity : AppCompatActivity() {
             // Add intent to show toast in HomeActivity
             Intent(this, HomeActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                putExtra(EXTRA_TOAST, true)
+                putExtra(EXTRA_SNACKBAR, true)
                 startActivity(this)
             }
             finish()
