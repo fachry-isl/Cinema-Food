@@ -117,13 +117,11 @@ class CheckoutActivity : AppCompatActivity() {
         // Build items title with quantity
         val title = StringBuilder()
         orders.forEachIndexed { index, item ->
-            viewModel.getItemQuantityWithId(item.itemId).observe(this, { quantity ->
-                if (index == orders.size - 1) {
-                    title.append("$quantity x ${item.itemName}")
-                } else {
-                    title.append("$quantity x ${item.itemName}, ")
-                }
-            })
+            if (index == orders.size - 1) {
+                title.append("${item.itemQuantity} ${item.itemName}")
+            } else {
+                title.append("${item.itemQuantity} ${item.itemName}, ")
+            }
         }
 
         binding.btnOrder.setOnClickListener {

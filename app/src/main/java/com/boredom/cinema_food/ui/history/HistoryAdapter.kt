@@ -15,6 +15,7 @@ class HistoryAdapter : RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() 
     fun setHistories(list: List<HistoryEntity>) {
         historyList.clear()
         historyList.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(
