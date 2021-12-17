@@ -113,4 +113,10 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_icon_for_processed_order">dialog icon for processed order</string>
+    <string name="order_processed">ORDER PROCESSED</string>
+    <string name="pesanan_akan_siap_dalam">Pesanan akan siap dalam</string>
+    <string name="_15_menit">15 menit</string>
+    <string name="receipt_history">Receipt History</string>
+    <string name="back_to_home">Back To Home</string>
 </resources>

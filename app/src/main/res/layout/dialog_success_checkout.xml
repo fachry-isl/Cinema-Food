@@ -1,0 +1,119 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_dialog_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/dialog_icon_for_processed_order"
+        android:src="@drawable/ic_checkout_processed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_transaction_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/light_black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_dialog_icon"
+        app:layout_constraintStart_toStartOf="@+id/iv_dialog_icon"
+        app:layout_constraintTop_toBottomOf="@+id/iv_dialog_icon"
+        tools:text="12 Nov 2021 07:12" />
+
+    <TextView
+        android:id="@+id/tv_title_id_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_transaction_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_transaction_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_transaction_time"
+        tools:text="ID Transaction" />
+
+    <TextView
+        android:id="@+id/tv_id_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7FS989R2FDSF9"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title_id_transaction"
+        app:layout_constraintStart_toStartOf="@+id/tv_title_id_transaction"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_id_transaction" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/order_processed"
+        android:textColor="@color/light_black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/tv_id_transaction"
+        app:layout_constraintStart_toStartOf="@id/tv_id_transaction"
+        app:layout_constraintTop_toBottomOf="@id/tv_id_transaction" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/pesanan_akan_siap_dalam"
+        android:textColor="@color/light_black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_15_menit"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView13"
+        app:layout_constraintStart_toStartOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@id/textView13" />
+
+    <Button
+        android:id="@+id/btn_go_history"
+        android:layout_width="170dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/receipt_history"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_go_home"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/btn_dialog_checkout_home"
+        android:text="@string/back_to_home"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_go_history"
+        app:layout_constraintStart_toStartOf="@+id/btn_go_history"
+        app:layout_constraintTop_toBottomOf="@+id/btn_go_history" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ import com.boredom.cinema_food.ui.cart.CartAdapter
 import com.boredom.cinema_food.ui.checkout.promo.PromoActivity
 import com.boredom.cinema_food.utils.DateUtils
 import com.boredom.cinema_food.utils.NumberFormatterUtils.format
+import com.boredom.cinema_food.utils.OrderProcessedDialog
 import com.google.android.material.snackbar.Snackbar
 import kotlin.properties.Delegates
 
@@ -137,13 +138,14 @@ class CheckoutActivity : AppCompatActivity() {
                     currentTotalPrice,
                     true
                 )
+                val orderDialog = OrderProcessedDialog(this)
+                orderDialog.show(supportFragmentManager, "dialog")
                 viewModel.insertHistory(historyEntity)
                 viewModel.deleteOrders()
-                finish()
             } else {
                 Snackbar.make(
                     binding.toolbarLayout,
-                    "Failed to Order Make Sure to Select All Order Methods and Make Sure Order Items is Not Empty",
+                    "Failed to order make sure to select all order methods and Ordered items is not empty",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }

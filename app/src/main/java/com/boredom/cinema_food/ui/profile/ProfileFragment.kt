@@ -5,10 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.boredom.cinema_food.databinding.FragmentProfileBinding
-import com.boredom.cinema_food.ui.history.HistoryAdapter
-import com.boredom.cinema_food.utils.DataDummy
 
 
 class ProfileFragment : Fragment() {
@@ -28,16 +25,6 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val adapter = HistoryAdapter()
-
-        adapter.setHistories(DataDummy.generateDummyHistory())
-
-        with(binding.rvHistory) {
-            layoutManager = LinearLayoutManager(context)
-            this.adapter = adapter
-            setHasFixedSize(true)
-        }
     }
 
 
