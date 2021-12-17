@@ -12,7 +12,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:contentDescription="@string/dialog_icon_for_processed_order"
-        android:src="@drawable/ic_checkout_processed"
+        android:src="@drawable/checkout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
