@@ -7,16 +7,28 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.boredom.cinema_food.R
 import com.boredom.cinema_food.databinding.ActivityHomeBinding
+import com.firebase.ui.auth.AuthUI
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
+    private lateinit var mFirebaseAuth: FirebaseAuth
+
+    private var mAuthStateListener: FirebaseAuth.AuthStateListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Initialize Firebase Components
+        mFirebaseAuth = FirebaseAuth.getInstance()
+
+        // Setup authentication
+        setupAuthStateListener()
 
         val navView = binding.bottomNavMain
         val navHostFragment =
@@ -33,7 +45,44 @@ class HomeActivity : AppCompatActivity() {
             showSnackbarCheckout(isSnackbarCheckout)
             navigateHistory(isNavigateHistory, navController)
         }
+    }
 
+    private fun setupAuthStateListener() {
+        mAuthStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
+            val user = firebaseAuth.currentUser
+            if (user != null) {
+                // User is signed in
+            } else {
+                // User is signed out
+                startActivityForResult(
+                    AuthUI.getInstance()
+                        .createSignInIntentBuilder()
+                        .setTheme(R.style.FirebaseLoginTheme)
+                        .setLogo(R.drawable.moviecaffe_logo)
+                        .setIsSmartLockEnabled(false)
+                        .setAvailableProviders(
+                            listOf(
+                                AuthUI.IdpConfig.GoogleBuilder().build(),
+                                AuthUI.IdpConfig.EmailBuilder().build()
+                            )
+                        )
+                        .build(),
+                    RC_SIGN_IN
+                )
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mFirebaseAuth.addAuthStateListener(mAuthStateListener as FirebaseAuth.AuthStateListener)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (mAuthStateListener != null) {
+            mFirebaseAuth.removeAuthStateListener(mAuthStateListener as FirebaseAuth.AuthStateListener)
+        }
     }
 
     private fun navigateHistory(navigateHistory: Boolean, navController: NavController) {
@@ -66,6 +115,7 @@ class HomeActivity : AppCompatActivity() {
         const val EXTRA_SNACKBAR = "show_snackbar"
         const val EXTRA_CHECKOUT_SNACKBAR = "show_checkout_snackbar"
         const val EXTRA_CHECKOUT_HISTORY = "navigate_history"
+        const val RC_SIGN_IN = 1
     }
 
 }

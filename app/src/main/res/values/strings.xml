@@ -121,4 +121,6 @@
     <string name="back_to_home">Back To Home</string>
     <string name="_7fs989r2fdsf9">7FS989R2FDSF9</string>
     <string name="id_transaction">ID Transaction</string>
+    <string name="guest">Guest</string>
+    <string name="logout">Logout</string>
 </resources>

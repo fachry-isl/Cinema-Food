@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -58,13 +59,6 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
 
     /**
-     * Api library - Retrofit with Logging Interceptor and Gson Converter
-     */
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
-
-    /**
      * LiveData Library - ViewModel and LiveData
      */
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
@@ -109,8 +103,13 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.0"
 
     /**
-     * Paging Library
+     * Firebase Library
      */
-    implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+    implementation platform('com.google.firebase:firebase-bom:29.0.2')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
 
 }

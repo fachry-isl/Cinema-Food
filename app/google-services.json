@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "639042679111",
+    "firebase_url": "https://friendlychat-4060b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "friendlychat-4060b",
+    "storage_bucket": "friendlychat-4060b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639042679111:android:25f42d91b587ad4c2b9c62",
+        "android_client_info": {
+          "package_name": "com.boredom.cinema_food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639042679111-t4n34qe1n0q9vnt2gpubslrko9ar86kh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boredom.cinema_food",
+            "certificate_hash": "09a79f8149b5fc9cf02d553bc6919b5b174bee37"
+          }
+        },
+        {
+          "client_id": "639042679111-7umdsdt3gpl6s5m62cni9fkk9ukclf29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYm60Dczwt2oUsAoU9K2EHCorbemoOWy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639042679111-7umdsdt3gpl6s5m62cni9fkk9ukclf29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639042679111:android:190850489e2a3f202b9c62",
+        "android_client_info": {
+          "package_name": "com.boredom.friendlychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639042679111-lj16lf7sglvcqeae2dkdaugueuus7a4v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.boredom.friendlychat",
+            "certificate_hash": "09a79f8149b5fc9cf02d553bc6919b5b174bee37"
+          }
+        },
+        {
+          "client_id": "639042679111-7umdsdt3gpl6s5m62cni9fkk9ukclf29.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYm60Dczwt2oUsAoU9K2EHCorbemoOWy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639042679111-7umdsdt3gpl6s5m62cni9fkk9ukclf29.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
