@@ -30,6 +30,7 @@ class PromoActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory)[PromoViewModel::class.java]
 
         viewModel.coupons.observe(this, Observer(this::showRecyclerView))
+
     }
 
     private fun setupApplyCouponButton(item: CouponEntity) {

@@ -2,6 +2,7 @@ package com.boredom.cinema_food.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.boredom.cinema_food.R
 import com.boredom.cinema_food.data.entity.MovieEntity
 import com.boredom.cinema_food.databinding.FragmentHomeBinding
 import com.boredom.cinema_food.ui.ViewModelFactory
+import com.boredom.cinema_food.ui.home.promo.PromoPreviewActivity
 import com.boredom.cinema_food.utils.DayUtils
 
 
@@ -53,6 +55,23 @@ class HomeFragment : Fragment() {
                 adapter = homeAdapter
                 setHasFixedSize(true)
             }
+
+            binding.btnPromo.setOnClickListener {
+                Intent(requireContext(), PromoPreviewActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+
+            // Setup coupons count
+            viewModel.getItemCouponsCount().observe(viewLifecycleOwner, { count ->
+                if (count != 0) {
+                    binding.tvCouponsCount.visibility = View.VISIBLE
+                    binding.tvCouponsCount.text = count.toString()
+                } else {
+                    // Hide red notify if no coupons
+                    binding.tvCouponsCount.visibility = View.GONE
+                }
+            })
         }
     }
 

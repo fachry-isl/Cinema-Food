@@ -46,6 +46,12 @@ interface CinemaDao {
     @Query("SELECT item_quantity FROM item_order WHERE id = :id LIMIT 1")
     fun getItemQuantityWithId(id: Int): LiveData<Int>
 
+    @Query("SELECT COUNT(*) FROM coupon")
+    fun getItemCouponsCount(): LiveData<Int>
+
+    @Query("SELECT COUNT(*) FROM history")
+    fun getItemHistoriesCount(): LiveData<Int>
+
     @Query("UPDATE item_order SET item_quantity = item_quantity-1 WHERE id = :id")
     fun minusQuantityWithId(id: Int)
 

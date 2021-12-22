@@ -74,13 +74,14 @@ class CheckoutActivity : AppCompatActivity() {
 
             // This activity will get intent when user apply a coupon
             val extras = intent.extras
+            var coupon: CouponEntity? = null
             if (extras != null) {
-                val item = extras.getParcelable<CouponEntity>(EXTRA_COUPON)
-                if (item != null) {
-                    applyDiscount(item)
+                coupon = extras.getParcelable(EXTRA_COUPON)
+                if (coupon != null) {
+                    applyDiscount(coupon)
                 }
             }
-            setupOrderButton(orders)
+            setupOrderButton(orders, coupon)
         })
         with(binding.rvCheckout) {
             layoutManager = LinearLayoutManager(context)
@@ -113,7 +114,7 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
 
-    private fun setupOrderButton(orders: List<ItemOrderEntity>) {
+    private fun setupOrderButton(orders: List<ItemOrderEntity>, coupon: CouponEntity?) {
 
         // Build items title with quantity
         val title = StringBuilder()
@@ -140,8 +141,13 @@ class CheckoutActivity : AppCompatActivity() {
                 )
                 val orderDialog = OrderProcessedDialog(this)
                 orderDialog.show(supportFragmentManager, "dialog")
+                // Insert order history
                 viewModel.insertHistory(historyEntity)
+                // Delete all item(s) in cart
                 viewModel.deleteOrders()
+                if (coupon != null) {
+                    viewModel.deleteCoupon(coupon)
+                }
             } else {
                 Snackbar.make(
                     binding.toolbarLayout,

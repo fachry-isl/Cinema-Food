@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.boredom.cinema_food.R
 import com.boredom.cinema_food.databinding.FragmentProfileBinding
+import com.boredom.cinema_food.ui.ViewModelFactory
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.firebase.ui.auth.AuthUI
@@ -21,6 +23,7 @@ class ProfileFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var viewModel: ProfileViewModel
     private lateinit var mFirebaseAuth: FirebaseAuth
     private var mAuthStateListener: FirebaseAuth.AuthStateListener? = null
 
@@ -35,6 +38,18 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val factory = ViewModelFactory.getInstance(requireContext())
+        viewModel = ViewModelProvider(this, factory)[ProfileViewModel::class.java]
+
+        viewModel.getItemHistoriesCount().observe(viewLifecycleOwner, { count ->
+            binding.tvTotalOrder.text = count.toString()
+        })
+
+        viewModel.getItemCouponsCount().observe(viewLifecycleOwner, { count ->
+            binding.tvTotalCoupon.text = count.toString()
+        })
 
         // Initialize Firebase Component
         mFirebaseAuth = FirebaseAuth.getInstance()

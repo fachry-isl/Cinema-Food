@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.boredom.cinema_food.data.CinemaFoodRepository
+import com.boredom.cinema_food.data.entity.CouponEntity
 import com.boredom.cinema_food.data.entity.HistoryEntity
 import com.boredom.cinema_food.data.entity.ItemOrderEntity
 import kotlinx.coroutines.launch
@@ -13,6 +14,12 @@ class CheckoutViewModel(private val mCinemaFoodRepository: CinemaFoodRepository)
 
     fun getItemQuantityWithId(id: Int): LiveData<Int> =
         mCinemaFoodRepository.getItemQuantityWithId(id)
+
+    fun deleteCoupon(couponEntity: CouponEntity) {
+        viewModelScope.launch {
+            mCinemaFoodRepository.deleteCoupon(couponEntity)
+        }
+    }
 
     fun insertHistory(historyEntity: HistoryEntity) {
         viewModelScope.launch {

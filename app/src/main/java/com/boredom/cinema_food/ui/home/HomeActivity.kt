@@ -1,6 +1,8 @@
 package com.boredom.cinema_food.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -82,6 +84,16 @@ class HomeActivity : AppCompatActivity() {
         super.onPause()
         if (mAuthStateListener != null) {
             mFirebaseAuth.removeAuthStateListener(mAuthStateListener as FirebaseAuth.AuthStateListener)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK) {
+            Toast.makeText(this, "You're signed in", Toast.LENGTH_SHORT).show()
+        } else if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(this, "You're signed out", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 

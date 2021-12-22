@@ -46,6 +46,10 @@ class CinemaFoodRepository(
 
     fun getItemQuantityWithId(id: Int): LiveData<Int> = cinemaDao.getItemQuantityWithId(id)
 
+    fun getItemCouponsCount(): LiveData<Int> = cinemaDao.getItemCouponsCount()
+
+    fun getItemHistoriesCount(): LiveData<Int> = cinemaDao.getItemHistoriesCount()
+
     fun deleteCoupon(couponEntity: CouponEntity) {
         executor.execute { cinemaDao.deleteCoupon(couponEntity) }
     }

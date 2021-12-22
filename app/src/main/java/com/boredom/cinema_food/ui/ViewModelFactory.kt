@@ -10,6 +10,7 @@ import com.boredom.cinema_food.ui.checkout.promo.PromoViewModel
 import com.boredom.cinema_food.ui.history.HistoryViewModel
 import com.boredom.cinema_food.ui.home.HomeViewModel
 import com.boredom.cinema_food.ui.home.order.OrderViewModel
+import com.boredom.cinema_food.ui.profile.ProfileViewModel
 
 class ViewModelFactory private constructor(private val mCinemaFoodRepository: CinemaFoodRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -44,6 +45,9 @@ class ViewModelFactory private constructor(private val mCinemaFoodRepository: Ci
             }
             modelClass.isAssignableFrom(HistoryViewModel::class.java) -> {
                 HistoryViewModel(mCinemaFoodRepository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(mCinemaFoodRepository) as T
             }
             else -> {
                 throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
