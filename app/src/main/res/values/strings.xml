@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cinema-Food</string>
+    <string name="app_name">Movie Caffe</string>
     <string name="home">Home</string>
     <string name="cart">Cart</string>
     <string name="history">History</string>
