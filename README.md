@@ -17,7 +17,8 @@ Repository ini berisi source code aplikasi cinema food yang dibangun dengan Andr
 > Dalam pengerjaan project ini, versi Gradle yang saya gunakan adalah  versi 7.0.3 dan menggunakan android versi R ( Android 11.0 API 30)
 
 ![mockup aplikasi](https://github.com/fachry-isl/Cinema-Food/raw/main/app/src/main/res/drawable/mockup.png)  
-*gambar mockup aplikasi secara lengkap dalam satu fitur.
+*gambar mockup aplikasi secara lengkap dalam satu fitur. 
+[mockup aplikasi Movie Caffe](https://www.figma.com/proto/FhDIQPHjl1hxalZUidy4Fz/Wireframe?node-id=6%3A962&starting-point-node-id=6%3A962)
 
 
 * Untuk mengembangkan aplikasi ini clone repository:  
@@ -31,7 +32,7 @@ Repository ini berisi source code aplikasi cinema food yang dibangun dengan Andr
 * [x] Bisa menambahkan varian makanan dan minuman.
 * [x] Menyediakan metode pesanan take away
 * [x] Menyediakan metode cashless payment
-* [x] Diskon.
+* [x] Diskon Pembayaran.
 
 **Todo:**
 
